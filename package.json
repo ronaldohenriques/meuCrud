@@ -1,0 +1,11 @@
+{
+  "packageManager": "npm@10.5.0",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  },
+  "scripts": {
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "build:backend": "cd backend && mvnw clean package",
+    "build:all": "npm run build:frontend && npm run build:backend"
+  }
+}
