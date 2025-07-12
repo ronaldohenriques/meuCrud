@@ -15,6 +15,7 @@
 .env
 .env.*
 !.env.example
+.turbo/*
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
@@ -159,3 +160,4 @@ backend/.sts4-cache/
 !**/src/test/resources/.gitkeep
 !**/public/.gitkeep
 !**/assets/.gitkeep
+
