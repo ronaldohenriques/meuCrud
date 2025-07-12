@@ -1,0 +1,39 @@
+<!-- topbar.component.html -->
+<mat-toolbar color="primary">
+  <!-- Logo/Título -->
+  <span class="toolbar-title">Meu CRUD</span>
+
+  <!-- Spacer para empurrar itens para a direita -->
+  <span class="toolbar-spacer"></span>
+
+  <!-- Opção 1: Botões diretos na toolbar -->
+  <button
+    *ngFor="let item of items"
+    [routerLink]="item.routerLink"
+    class="nav-button"
+    mat-button>
+    <mat-icon>{{ item.icon }}</mat-icon>
+    {{ item.label }}
+  </button>
+
+  <!-- Botão do usuário -->
+  <button [matMenuTriggerFor]="userMenu" mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <!-- Menu dropdown do usuário -->
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Configurações</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Sair</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

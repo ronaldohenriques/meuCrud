@@ -1,0 +1,13 @@
+<div class="min-h-screen flex flex-col">
+  <app-topbar></app-topbar>
+
+  <div class="flex flex-col md:flex-row flex-1 min-h-0">
+    <app-sidebar class="w-64 shrink-0 bg-white shadow"></app-sidebar>
+
+    <main class="flex-1 p-4 md:p-8 bg-gray-50 min-w-0 overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <app-footer></app-footer>
+</div>

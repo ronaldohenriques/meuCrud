@@ -1,0 +1,27 @@
+<!-- sidebar.component.html -->
+<mat-nav-list class="sidebar-nav">
+  <mat-expansion-panel
+    *ngFor="let item of items"
+    [expanded]="true"
+    class="sidebar-panel">
+
+    <mat-expansion-panel-header>
+      <mat-panel-title class="sidebar-title">
+        <mat-icon class="sidebar-icon">{{ item.icon }}</mat-icon>
+        {{ item.label }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-nav-list class="submenu-list">
+      <a
+        *ngFor="let subItem of item.items"
+        [routerLink]="subItem.routerLink"
+        class="sidebar-subitem"
+        mat-list-item
+        routerLinkActive="active-link">
+        <mat-icon matListItemIcon>{{ subItem.icon }}</mat-icon>
+        <span matListItemTitle>{{ subItem.label }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</mat-nav-list>

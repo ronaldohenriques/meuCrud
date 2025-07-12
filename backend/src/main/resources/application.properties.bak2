@@ -1,0 +1,85 @@
+# Principal arquivo de configuração da aplicação.
+# ===============================
+# = CONFIGURAÇÔES BÁSICAS
+# ===============================
+# Nome da aplicação - identifica sua aplicação em logs e ferramentas de monitoramento
+spring.application.name=agenda-telefonica
+info=
+title="CRUD Agenda Telefônica API"
+version="1.0.0"
+contact=
+name="Ronaldo Henriques"
+url="https://linkedin.com/in/ronaldo-henriques"
+x-email="henriques.ronaldo@gmail.com"
+# ===============================
+# = BANCO DE DADOS H2 (banco em memória para desenvolvimento)
+# ===============================
+# URL de conex?o com o banco H2 em memoria
+# DB_CLOSE_DELAY=-1 mantém o banco ativo mesmo sem conex?es
+# DB_CLOSE_ON_EXIT=FALSE impede que o banco seja fechado quando a aplicação terminar
+spring.datasource.url=jdbc:h2:mem:agenda_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+# Driver JDBC para o banco H2
+spring.datasource.driver-class-name=org.h2.Driver
+# Credenciais de acesso ao banco de dados
+spring.datasource.username=sa
+spring.datasource.password=password
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+# Define o dialeto SQL que o Hibernate usara para comunicar com o banco
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+# Estrategia de criação/atualização das tabelas no banco:
+# - none: nao faz nada
+# - validate: apenas valida se as tabelas correspondem as entidades
+# - update: atualiza o esquema se necesscrio (bom para desenvolvimento)
+# - create: cria as tabelas ao iniciar e as destrci ao finalizar
+# - create-drop: cria as tabelas ao iniciar e as destrci ao finalizar
+spring.jpa.hibernate.ddl-auto=update
+# Exibe os comandos SQL executados pelo Hibernate no console (ctil para debug)
+spring.jpa.show-sql=true
+# Formata os comandos SQL para melhor legibilidade
+spring.jpa.properties.hibernate.format_sql=true
+# ===============================
+# = CONSOLE H2 (interface web para gerenciar o banco H2)
+# ===============================
+# Habilita o console web do H2
+spring.h2.console.enabled=true
+# Define o caminho para acessar o console (ex: http://localhost:8080/h2-console)
+spring.h2.console.path=/h2-console
+# Impede acesso ao console H2 de maquinas remotas (mais seguro)
+spring.h2.console.settings.web-allow-others=false
+# Para executar o data.sql
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=always
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
+# ===============================
+# = CONFIGURçõES DE LOGGING
+# ===============================
+# Define o nível de log para diferentes pacotes
+# N?veis dispon?veis: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+# Pacotes do Spring (nível INFO mostra eventos importantes sem poluir muito)
+logging.level.org.springframework=INFO
+# Pacotes da sua aplicação (DEBUG mostra informa??es detalhadas para desenvolvimento)
+logging.level.com.ronaldo.agenda=DEBUG
+
+# Arquivo de log
+logging.file.name=app.log
+
+logging.level.root=INFO
+logging.pattern.console=%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+# ===============================
+# = CONFIGURAÇÔES DO SERVIDOR WEB
+# ===============================
+# Porta onde o servidor web ira rodar (8080 e o padr?o)
+server.port=8080
+# ===============================
+# = DICAS PARA PRODUção
+# ===============================
+# Em ambiente de produção, voce deve:
+# 1. Mudar para um banco de dados real (MySQL, PostgreSQL, etc.)
+# 2. Desativar o console H2 (spring.h2.console.enabled=false)
+# 3. Mudar o nível de log para INFO ou WARN
+# 4. Configurar credenciais seguras
+# 5. Considerar usar HTTPS
+

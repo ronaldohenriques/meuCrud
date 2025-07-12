@@ -1,0 +1,28 @@
+/*
+ * Arquivo de Estilos Globais da Aplicação
+ *
+ * Este arquivo contém estilos CSS que são aplicados globalmente em toda a aplicação Angular.
+ * Ele é o ponto de entrada para a importação de bibliotecas externas e definição de regras CSS base.
+ */
+
+
+/*
+ * Seção de Importações de Bibliotecas de Terceiros
+ *
+ * Importa folhas de estilo de bibliotecas externas utilizadas no projeto.
+ * - Font Awesome: Fornece uma vasta coleção de ícones escaláveis.
+ * - Tailwind CSS: Um framework CSS utility-first para construção rápida de interfaces.
+ * A ordem de importação do Tailwind é importante para sua cascata interna (base, components, utilities).
+ */
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "tailwindcss";
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

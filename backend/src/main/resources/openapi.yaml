@@ -1,0 +1,194 @@
+openapi: "3.0.3"
+info:
+  title: "CRUD Agenda Telefônica API"
+  description: "API para gerenciar contatos em uma agenda telefônica"
+  version: "1.0.0"
+  contact:
+    name: "Ronaldo Henriques"
+    url: "https://linkedin.com/in/ronaldo-henriques"
+servers:
+  - url: "http://localhost:8080"
+    description: "Ambiente de desenvolvimento"
+tags:
+  - name: "Contatos"
+    description: "API para gerenciamento de contatos"
+paths:
+  /api/contatos:
+    get:
+      summary: "Listar todos os contatos"
+      description: "Retorna uma lista com todos os contatos cadastrados no sistema"
+      operationId: "getTodosContatos"
+      responses:
+        "200":
+          description: "Operação realizada com sucesso."
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ContatoDTO"
+    post:
+      summary: "Criar novo contato"
+      description: "Cria um novo contato com os dados fornecidos"
+      operationId: "criarContato"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContatoDTO"
+        required: true
+      responses:
+        "201":
+          description: "Contato criado com sucesso."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContatoDTO"
+        "400":
+          description: "Dados inválidos"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                status: 400
+                message: "O campo 'email' é obrigatório"
+  /api/contatos/{id}:
+    get:
+      summary: "Buscar contato por ID"
+      description: "Retorna um contato específico com base no ID fornecido"
+      operationId: "getContatoPorId"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          description: "ID do contato a ser buscado"
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "Operação realizada com sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContatoDTO"
+        "404":
+          description: "Contato não encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    put:
+      summary: "Atualizar contato"
+      description: "Atualiza os dados de um contato existente"
+      operationId: "atualizarContato"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          description: "ID do contato a ser atualizado"
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContatoDTO"
+        required: true
+      responses:
+        "200":
+          description: "Operação realizada com sucesso"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContatoDTO"
+        "400":
+          description: "Dados inválidos"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                status: 400
+                message: "O campo 'email' é obrigatório"
+    delete:
+      summary: "Remover contato"
+      description: "Exclui permanentemente um contato do sistema"
+      operationId: "deletarContato"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          description: "ID do contato a ser removido"
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "204":
+          description: "Contato removido com sucesso"
+        "404":
+          description: "Contato não encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /api/contatos/busca:
+    get:
+      summary: "Buscar contatos por nome"
+      description: "Retorna uma lista de contatos cujos nomes contenham o texto informado (busca case-insensitive)"
+      operationId: "buscarPorNome"
+      parameters:
+        - name: "nome"
+          in: "query"
+          required: true
+          description: "Nome ou parte do nome a ser pesquisado"
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "Operação realizada com sucesso"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ContatoDTO"
+        "404":
+          description: "Contato não encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    ContatoDTO:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+          example: "123"
+        nome:
+          type: "string"
+          example: "Ronaldo Henriques"
+        email:
+          type: "string"
+          example: "ronaldo@ronaldo.com"
+        telefone:
+          type: "string"
+          example: "+55 (41) 12345-6789"
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 404
+        message:
+          type: string
+          example: "Contato não encontrado"
+      required:
+        - status
+        - message

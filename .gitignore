@@ -1,28 +1,232 @@
 # Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
-.angular/
+/frontend/dist/
+/frontend/out-tsc/
+/frontend/tmp/
+/frontend/coverage/
+/frontend/e2e/test-output/
+/frontend/.angular/
+/frontend.angular/
 
 # Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+/frontend/node_modules/
+/frontend/package-lock.json
+/frontend/yarn.lock
 
 # Environment files
-/.env
+/frontend/.env
 
 # Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
+/frontend/.angular-cli.json
+/frontend/.ng/
 
 # TypeScript cache
-*.tsbuildinfo
+/frontend*.tsbuildinfo
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+
+
+
+# Java specific
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+
+# Created by https://www.gitignore.io/api/git,java,maven,eclipse,windows
+
+### Eclipse ###
+/backend/.metadata
+/backend/bin/
+/backend/tmp/
+/backend/*.tmp
+/backend/*.bak
+/backend/*.swp
+/backend/*~.nib
+/backend/local.properties
+/backend/.settings/
+/backend/.loadpath
+/backend/.recommenders
+
+# External tool builders
+/backend/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+/backend/*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+/backend/*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+/backend/.cproject
+
+# CDT- autotools
+/backend/.autotools
+
+# Java annotation processor (APT)
+/backend/.factorypath
+
+# PDT-specific (PHP Development Tools)
+/backend/.buildpath
+
+# sbteclipse plugin
+/backend/.target
+
+# Tern plugin
+/backend/.tern-project
+
+# TeXlipse plugin
+/backend/.texlipse
+
+# STS (Spring Tool Suite)
+/backend/.springBeans
+
+# Code Recommenders
+/backend/.recommenders/
+
+# Annotation Processing
+/backend/.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+/backend/.cache-main
+/backend/.scala_dependencies
+/backend/.worksheet
+
+### Eclipse Patch ###
+# Eclipse Core
+/backend/.project
+
+# JDT-specific (Eclipse Java Development Tools)
+/backend/.classpath
+
+# Annotation Processing
+/backend/.apt_generated
+
+/backend/.sts4-cache/
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+/backend/*.orig
+
+# Created by git when using merge tools for conflicts
+/backend/*.BACKUP.*
+/backend/*.BASE.*
+/backend/*.LOCAL.*
+/backend/*.REMOTE.*
+/backend/*_BACKUP_*.txt
+/backend/*_BASE_*.txt
+/backend/*_LOCAL_*.txt
+/backend/*_REMOTE_*.txt
+
+### Java ###
+# Compiled class file
+/backend/*.class
+
+# Log file
+/backend/*.log
+
+# BlueJ files
+/backend/*.ctxt
+
+# Mobile Tools for Java (J2ME)
+/backend/.mtj.tmp/
+
+# Package Files #
+/backend/*.jar
+/backend/*.war
+/backend/*.nar
+/backend/*.ear
+/backend/*.zip
+/backend/*.tar.gz
+/backend/*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+/backend/hs_err_pid*
+
+### Maven ###
+/backend/target/
+/backend/pom.xml.tag
+/backend/pom.xml.releaseBackup
+/backend/pom.xml.versionsBackup
+/backend/pom.xml.next
+/backend/release.properties
+/backend/dependency-reduced-pom.xml
+/backend/buildNumber.properties
+/backend/.mvn/timing.properties
+/backend/.mvn/wrapper/maven-wrapper.jar
+
+### Windows ###
+# Windows thumbnail cache files
+/backend/Thumbs.db
+/backend/ehthumbs.db
+/backend/ehthumbs_vista.db
+
+# Dump file
+/backend/*.stackdump
+
+# Folder config file
+/backend/[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+/backend/$RECYCLE.BIN/
+
+# Windows Installer files
+/backend/*.cab
+/backend/*.msi
+/backend/*.msix
+/backend/*.msm
+/backend/*.msp
+
+# Windows shortcuts
+/backend/*.lnk
+
+### IntelliJ IDEA ###
+/backend/.idea
+/backend/*.iws
+/backend/*.iml
+/backend/*.ipr
+
+### NetBeans ###
+/backend/nbproject/private/
+/backend/nbbuild/
+/backend/dist/
+/backend/nbdist/
+/backend/.nb-gradle/
+/backend/build/
+/backend/!**/src/main/**/build/
+/backend/!**/src/test/**/build/
+
+### VS Code ###
+/backend/.vscode/
+
+### Some additional ignores (sort later)
+/backend/*.DS_Store
+/backend/*.sw?
+/backend/.#*
+/backend/*#
+/backend/*~
+/backend/.classpath
+/backend/.project
+/backend/.settings
+/backend/bin
+/backend/build
+/backend/target
+/backend/dependency-reduced-pom.xml
+/backend/*.sublime-*
+/backend/scratch
+/backend/.gradle
+/backend/README.html
+/backend/*.iml
+/backend/.idea
+/backend/.exercism
