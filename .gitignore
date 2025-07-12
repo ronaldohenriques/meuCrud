@@ -41,6 +41,7 @@ pnpm-lock.yaml
 /hs_err_pid*
 /reports/
 /performance/
+/node_modules/
 /target/
 /pom.xml.*
 /release.properties
